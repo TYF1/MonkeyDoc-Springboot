@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.monkeydoc.mapper.TokenMapper">
+    <select id="getinfobytoken" resultType="com.monkeydoc.Bean.TokenBean">
+        select * from Usertoken where token = #{token}
+    </select>
+    <select id="getinfobyuserid" resultType="com.monkeydoc.Bean.TokenBean">
+        select * from Usertoken where userid = #{userid}
+    </select>
+    <insert id="writetoken">
+        INSERT INTO Usertoken (token,userid) VALUES (#{token},#{userid})
+    </insert>
+    <update id="modifytoken" >
+        UPDATE Usertoken SET token=#{token} WHERE userid=#{userid}
+    </update>
+</mapper>

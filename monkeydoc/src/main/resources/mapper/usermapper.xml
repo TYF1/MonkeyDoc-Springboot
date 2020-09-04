@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.monkeydoc.mapper.UserMapper">
+    <select id="getinfobytel" resultType="com.monkeydoc.Bean.UserBean">
+        select * from User where tel = #{tel}
+    </select>
+    <select id="getinfobyemail" resultType="com.monkeydoc.Bean.UserBean">
+        select * from User where email = #{email}
+    </select>
+    <update id="pswmodify">
+        UPDATE User SET password= #{newpsw} WHERE id=#{userid}
+    </update>
+    <insert id="addnewuser">
+        INSERT INTO User (tel,email,userName,password) VALUES (#{tel},#{email},#{userName},#{password})
+    </insert>
+</mapper>
